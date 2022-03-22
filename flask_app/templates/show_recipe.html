@@ -29,6 +29,12 @@
         <div>
             Fecha creación: {{recipe.date_made}}
         </div>
+
+        {% if recipe.image is not none  %}
+        <div>
+            <img src="{{ url_for('static', filename='img/'+recipe.image) }}" class="img-fluid">
+        </div>
+        {% endif %}
     </div>
 </body>
 </html>

@@ -13,6 +13,7 @@ class Recipe:
         self.date_made = data["date_made"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
+        self.image = data['image']
     
     @staticmethod
     def valida_receta(formulario):
@@ -38,7 +39,7 @@ class Recipe:
     
     @classmethod
     def save(cls, data):
-        query = "INSERT INTO recipes (name, under30, description, instructions, date_made, user_id) VALUES (%(name)s, %(under30)s, %(description)s, %(instructions)s, %(date_made)s, %(user_id)s);"
+        query = "INSERT INTO recipes (name, under30, description, instructions, date_made, image, user_id) VALUES (%(name)s, %(under30)s, %(description)s, %(instructions)s, %(date_made)s, %(image)s, %(user_id)s);"
         nuevoId = connectToMySQL('esquema_recetas').query_db(query, data)
         return nuevoId
     
